@@ -42,7 +42,7 @@ int SatVal = 255;
 int ValVal = 255;
 
 int mode = 1;
-int nModes = 3; //total number of modes
+int nModes = 4; //total number of modes
 
 uint8_t gHue = 0; // rotating "base color" used by many of the patterns
 
@@ -288,6 +288,10 @@ void rainbowMode(int mData){
   gHue += 2;
 }
 
+void rebeccaMode(int mData){
+  fill_solid(leds,NUM_LEDS,CRGB(40,20,60));
+}
+
 void modeAction(int mData){
   switch(mode){
     case 1:
@@ -298,6 +302,9 @@ void modeAction(int mData){
       break;
     case 3:
       rainbowMode(mData);
+      break;
+    case 4:
+      rebeccaMode(mData);
       break;
   }
 }
